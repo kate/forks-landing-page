@@ -53,11 +53,12 @@ button:active {
     display: flex;
     align-items: center;
     margin: 0 2px;
+    padding: 0 1em;
+    background: transparent;
   }
 
   .size-calibration {
     visibility: hidden;
-    /* Prevent the span from wrapping the text when input value has multiple words, or collapsing multiple spaces into one */
     white-space: pre;
   }
 
@@ -68,13 +69,11 @@ button:active {
   }
   
   .size-calibration, .autosized-input {
+    background: transparent;
     border: 0;
     padding: 0;
-    background: #bbbbbb;
-    /* Demonstrate that this works for input with custom styles */
     font-size: 32px;
     text-align: center;
-    min-width: 2em;
     border-radius: 8px;
   }
 
