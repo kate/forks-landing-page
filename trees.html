@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CO2e Calculator</title>
+</head>
+<body>
+    <div style="width: 400px; display: inline-block;">
+        If 
+        <div>
+        <button id="decrementEmployees">-</button>
+        <input type="number" id="employees" value="10">
+        <button id="incrementEmployees">+</button>  
+        </div>
+        employees replace a meat based diet with a plant-based diet
+        <div>
+            <button id="decrementDays">-</button>
+            <input type="number" id="daysPerWeek" value="1">
+            <button id="incrementDays">+</button>
+        </div> 
+        day per week <span id="totalCO2eSaved"></span> lbs of CO2e can be saved annually.
+        <div style="margin-top: 24px;"> 
+            That's like planting <span id="treesPlanted"></span> trees!
+        </div>  
+    </div>
+    <style>
+        span { background: #e0e0e0; }
+    </style>
+  <script>
+    function calculateCO2eAndTrees(employees, daysPerWeek) {
+      // Calculate total CO2e saved annually
+      const totalCO2eSaved = Math.round(employees * daysPerWeek * 343.2);
+    
+      // Calculate equivalent trees planted (assuming 47.5 lbs CO2e per tree)
+      const treesPlanted = Math.round(totalCO2eSaved / 47.5);
+
+      return {
+        totalCO2eSaved,
+        treesPlanted
+      };
+    }
+
+    function updateCO2eAndTrees() {
+      const employees = parseInt(document.getElementById("employees").value);
+      const daysPerWeek = parseInt(document.getElementById("daysPerWeek").value);
+
+      const result = calculateCO2eAndTrees(employees, daysPerWeek);
+
+      document.getElementById("totalCO2eSaved").textContent = result.totalCO2eSaved;
+      document.getElementById("treesPlanted").textContent = result.treesPlanted;
+    }
+
+    function incrementValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = parseInt(input.value) + 1;
+      updateCO2eAndTrees();
+    }
+
+    function decrementValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = Math.max(0, parseInt(input.value) - 1);
+      updateCO2eAndTrees();
+    }
+
+    // Call the update function on page load
+    window.onload = updateCO2eAndTrees;
+
+    document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("employees"));
+    document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("employees"));
+    document.getElementById("incrementDays").addEventListener("click", () => incrementValue("daysPerWeek"));
+    document.getElementById("decrementDays").addEventListener("click", () => decrementValue("daysPerWeek"));
+
+    document.getElementById("employees").addEventListener("input", updateCO2eAndTrees);
+    document.getElementById("daysPerWeek").addEventListener("input", updateCO2eAndTrees);
+  </script>
+  <style>
+  </style>
+</body>
+</html>

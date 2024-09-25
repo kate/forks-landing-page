@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diabetes Prevention Savings Calculator</title>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+</head>
+<body>
+  <style>
+    .forksInteractionContainer {
+      background: green;
+    }
+  </style>
+  <div class="forksInteractionContainer">
+    If 123
+    <div>
+      <button id="decrementEmployees">-</button>
+      <input type="number" id="employees" value="1">
+      <button id="incrementEmployees">+</button>
+    </div>
+    team member prevents or reverses diabetes for
+    <div>
+      <button id="decrementYears">-</button>
+      <input type="number" id="years" value="1">
+      <button id="incrementYears">+</button>
+    </div>
+      year employers save <span id="totalSavings"></span>.
+    </div>  
+  </div>
+  <script>
+    function calculateSavings(employees, years) {
+      const savingsPerEmployeePerYear = 9600;
+      const totalSavings = employees * savingsPerEmployeePerYear * years;
+      return totalSavings.toLocaleString();
+    }
+
+    function updateSavings() {
+      const employees = parseInt(document.getElementById("employees").value);
+      const years = parseInt(document.getElementById("years").value);
+
+      const totalSavings = calculateSavings(employees, years);
+
+      document.getElementById("totalSavings").textContent = totalSavings;
+    }
+
+    function incrementValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = parseInt(input.value) + 1;
+      updateSavings();
+    }
+
+    function decrementValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = Math.max(0, parseInt(input.value) - 1);
+      updateSavings();
+    }
+
+    // Call the update function on page load
+    window.onload = updateSavings;
+
+    document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("employees"));
+    document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("employees"));
+    document.getElementById("incrementYears").addEventListener("click", () => incrementValue("years"));
+    document.getElementById("decrementYears").addEventListener("click", () => decrementValue("years"));
+  </script>
+</body>
+</html>
