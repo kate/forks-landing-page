@@ -1,16 +1,23 @@
+.forksInteractionContainer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.forksInteractionContainer input::-webkit-outer-spin-button,
+.forksInteractionContainer input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
+.forksInteractionContainer input[type=number] {
   -moz-appearance: textfield;
 }
 
-button {
+.forksInteractionContainer button {
     display: inline-flex;
     border: none;
     border-radius: 8px;
@@ -33,20 +40,20 @@ button {
     justify-content: center;
 }
 
-button:hover {
+.forksInteractionContainer button:hover {
     background: #d1d1d1;
 }
 
-button:focus {
+.forksInteractionContainer button:focus {
     background: #bdbdbd;
 }
 
-button:active {
+.forksInteractionContainer button:active {
     background: #e6e6e6;
 }
 
 
-.relative-parent {
+.forksInteractionContainer .relative-parent {
     position: relative;
     min-width: 1em;
     width: min-content;
@@ -57,18 +64,18 @@ button:active {
     background: transparent;
   }
 
-  .size-calibration {
+  .forksInteractionContainer .size-calibration {
     visibility: hidden;
     white-space: pre;
   }
 
-  .autosized-input {
+  .forksInteractionContainer .autosized-input {
     position: absolute;
     left: 0;
     width: 100%;
   }
   
-  .size-calibration, .autosized-input {
+  .forksInteractionContainer .size-calibration, .forksInteractionContainer .autosized-input {
     background: transparent;
     border: 0;
     padding: 0;
@@ -76,14 +83,8 @@ button:active {
     text-align: center;
     border-radius: 8px;
   }
-
-.forksInteractionContainer {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-  }
   
-.incrementDecrementContainer {
+.forksInteractionContainer .incrementDecrementContainer {
     display: flex;
     align-items: center;
 }

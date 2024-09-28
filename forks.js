@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       const span = document.querySelector('.size-calibration');
       const input = document.querySelector('.autosized-input')
       span.innerText = input.value;
-        
+  
       if (!input.value) {
         input.value = 1;
       }
-
+  
     }
   
     const input = document.querySelector('.autosized-input');
@@ -50,4 +50,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("employees"));
     document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("employees"));
   
-});
+  });
