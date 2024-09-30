@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function updateSavings() {
       const employees = parseInt(document.getElementById("diabetesEmployees").value);
       const totalSavings = calculateSavings(employees);
-      document.getElementById("diabetesTotalSavings").textContent = '\u00A0$' + totalSavings;
+      document.getElementById("diabetesTotalSavings").textContent = '\u00A0$' + totalSavings + '.';
       updateSize();  
     }
   
