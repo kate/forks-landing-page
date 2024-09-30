@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function updateCO2eAndTrees() {
-      const employees = parseInt(document.getElementById("employees").value);
+      const employees = parseInt(document.getElementById("treesEmployees").value);
       const daysPerWeek = parseInt(document.getElementById("daysPerWeek").value);
 
       const result = calculateCO2eAndTrees(employees, daysPerWeek);
@@ -70,6 +70,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById("treesPlanted").textContent = result.treesPlanted;
     }
 
-    window.onload = updateCO2eAndTrees;
+    function incrementTreesValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = parseInt(input.value) + 1;
+      updateCO2eAndTrees();
+    }
+
+    function decrementTreesValue(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = Math.max(0, parseInt(input.value) - 1);
+      updateCO2eAndTrees();
+    }
+
+    updateCO2eAndTrees();
+
+    document.getElementById("incrementTreesEmployees").addEventListener("click", () => incrementTreesValue("treesEmployees"));
+    document.getElementById("decrementTreesEmployees").addEventListener("click", () => decrementTreesValue("treesEmployees"));
+    document.getElementById("incrementDays").addEventListener("click", () => incrementTreesValue("daysPerWeek"));
+    document.getElementById("decrementDays").addEventListener("click", () => decrementTreesValue("daysPerWeek"));
+
+    document.getElementById("treesEmployees").addEventListener("input", updateCO2eAndTrees);
+    document.getElementById("daysPerWeek").addEventListener("input", updateCO2eAndTrees);
 
   });
