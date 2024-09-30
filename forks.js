@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
       if (!input.value) {
         input.value = 1;
-      }
-  
+      }  
     }
   
     const input = document.querySelector('.autosized-input');
     input.oninput = updateSize;
+    input.oninput = updateSavings;
     updateSize();
   
   
@@ -23,13 +23,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   
     function updateSavings() {
-      const employees = parseInt(document.getElementById("employees").value);
-  
+      const employees = parseInt(document.getElementById("diabetesEmployees").value);
       const totalSavings = calculateSavings(employees);
-  
-      document.getElementById("totalSavings").textContent = totalSavings;
-      updateSize();
-  
+      document.getElementById("diabetesTotalSavings").textContent = '\u00A0$' + totalSavings;
+      updateSize();  
     }
   
     function incrementValue(inputId) {
@@ -44,10 +41,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
       updateSavings();
     }
   
-    // Call the update function on page load
-    window.onload = updateSavings;
-  
-    document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("employees"));
-    document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("employees"));
-  
+    updateSavings();
+
+    document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("diabetesEmployees"));
+    document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("diabetesEmployees"));
+
+    // CO2e and Trees
+    function calculateCO2eAndTrees(employees, daysPerWeek) {
+      // Calculate total CO2e saved annually
+      const totalCO2eSaved = Math.round(employees * daysPerWeek * 343.2);
+    
+      // Calculate equivalent trees planted (assuming 47.5 lbs CO2e per tree)
+      const treesPlanted = Math.round(totalCO2eSaved / 47.5);
+
+      return {
+        totalCO2eSaved,
+        treesPlanted
+      };
+    }
+
+    function updateCO2eAndTrees() {
+      const employees = parseInt(document.getElementById("employees").value);
+      const daysPerWeek = parseInt(document.getElementById("daysPerWeek").value);
+
+      const result = calculateCO2eAndTrees(employees, daysPerWeek);
+
+      document.getElementById("totalCO2eSaved").textContent = result.totalCO2eSaved;
+      document.getElementById("treesPlanted").textContent = result.treesPlanted;
+    }
+
+    window.onload = updateCO2eAndTrees;
+
   });
