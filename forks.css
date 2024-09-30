@@ -17,6 +17,8 @@
 }
 
 .forksInteractionContainer button {
+  display: -webkit-inline-flex;
+display: -ms-inline-flexbox;
     display: inline-flex;
     transform: translateY(-2px);
     border: none;
@@ -61,6 +63,7 @@
     margin: 0 2px;
     padding: 0 .6em;
     background: transparent;
+    transform: translateY(-1px);
   }
 
   .forksInteractionContainer .size-calibration {
@@ -83,15 +86,20 @@
     font-size: 24px;
     text-align: center;
     border-radius: 8px;
-    font-family: serif
+    font-family: serif;
   }
   
 .forksInteractionContainer .incrementDecrementContainer {
+  display: -webkit-inline-flex;
+display: -ms-inline-flexbox;
     display: inline-flex;
     align-items: flex-end;
     padding: 0 .5em;
 }
 
 .forksInteractionStandout {
-  display: inline-flex;
+
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+    display: inline-flex;
 }
