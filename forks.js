@@ -10,9 +10,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }  
     }
   
-    const input = document.querySelector('.autosized-input');
-    input.oninput = updateSize;
-    input.oninput = updateSavings;
+    const inputDiabetes = document.querySelector('.diabetesCalculator .autosized-input');
+    inputDiabetes.oninput = updateSavings;
+
+    const inputTrees = document.querySelector('.c02andTreesCalculator .autosized-input');
+    inputTrees.oninput = updateCO2eAndTrees;
+
+    inputDiabetes.oninput = updateSize;
+
+
     updateSize();
   
   
@@ -66,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       const result = calculateCO2eAndTrees(employees, daysPerWeek);
 
-      document.getElementById("totalCO2eSaved").textContent = result.totalCO2eSaved;
+      document.getElementById("totalCO2eSaved").textContent = result.totalCO2eSaved.toLocaleString() + ' lbs';
       document.getElementById("treesPlanted").textContent = result.treesPlanted;
     }
 
