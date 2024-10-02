@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
     function updateSize(event) {
-      console.log('updateSize');
-      console.log(event);
       if(event) {
         const input = event.target; // Get the input field that triggered the event
         if (input.classList.contains('autosized-input')) {
@@ -17,18 +15,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     inputDiabetes.oninput = function() {
       updateSavings();
-      // updateSize();
     };
 
     const inputTrees = document.querySelector('.c02andTreesCalculator .autosized-input');
     inputTrees.oninput = function() {
       updateCO2eAndTrees();
-      // updateSize();
     }
 
-
-    updateSize();
-  
+    updateSize();  
   
     function calculateSavings(employees) {
       const savingsPerEmployeePerYear = 9600;
@@ -111,5 +105,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for (const container of containers) {
       container.addEventListener('input', updateSize);
     }
-    
+
   });

@@ -8,11 +8,11 @@
   <body>
     <div class="forksInteractionContainer diabetesCalculator">
       If
-      <div class="incrementDecrementContainer">
+      <div class="incrementDecrementContainer hide-buttons">
         <button id="decrementEmployees">-</button>
         <div class="relative-parent">
-          <span class="size-calibration"></span>
-          <input class="autosized-input" id="diabetesEmployees" value="1" />
+          <span class="size-calibration">1</span>
+          <input class="autosized-input" id="diabetesEmployees" value="1" autocomplete="off"/>
         </div>
         <button id="incrementEmployees">+</button>
       </div>
@@ -20,14 +20,15 @@
       <span class="forksInteractionStandout">&nbsp;1&nbsp;</span>
       year employers save
       <span class="forksInteractionStandout" id="diabetesTotalSavings"></span>
-    </div>    
+    </div>
+    <div style="height: 24px"></div>    
     <div class="forksInteractionContainer c02andTreesCalculator">
       If
-      <div class="incrementDecrementContainer">
+      <div class="incrementDecrementContainer hide-buttons">
         <button id="decrementTreesEmployees">-</button>
         <div class="relative-parent">
-          <span class="size-calibration"></span>
-          <input class="autosized-input" id="treesEmployees" value="10" />
+          <span class="size-calibration">10</span>
+          <input class="autosized-input" id="treesEmployees" value="10" autocomplete="off"/>
         </div>
         <button id="incrementTreesEmployees">+</button>
       </div>
@@ -35,8 +36,8 @@
       <div class="incrementDecrementContainer">
         <button id="decrementDays">-</button>
         <div class="relative-parent">
-          <span class="size-calibration"></span>
-          <input class="autosized-input" id="daysPerWeek" value="1" />
+          <span class="size-calibration">1</span>
+          <input class="autosized-input" id="daysPerWeek" value="1" autocomplete="off" disabled/>
         </div>
         <button id="incrementDays">+</button>
       </div>
@@ -44,7 +45,7 @@
       <span class="forksInteractionStandout" id="totalCO2eSaved"></span>
       of CO<sub>2</sub>e can be saved annually.        
     </div>
-    <div> 
+    <div class="forksInteractionContainer"> 
       <span>That's like planting</span> 
       <span class="forksInteractionStandout" id="treesPlanted"></span>
       <span>trees!</span>
