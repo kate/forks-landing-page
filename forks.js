@@ -1,22 +1,30 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    function updateSize() {
-      const span = document.querySelector('.size-calibration');
-      const input = document.querySelector('.autosized-input')
-      span.innerText = input.value;
-  
-      if (!input.value) {
-        input.value = 1;
-      }  
+    function updateSize(event) {
+      console.log('updateSize');
+      console.log(event);
+      if(event) {
+        const input = event.target; // Get the input field that triggered the event
+        if (input.classList.contains('autosized-input')) {
+          console.log(input);
+          const span = input.parentElement.querySelector('.size-calibration');
+          span.innerText = input.value;
+        }    
+      }
     }
-  
+
     const inputDiabetes = document.querySelector('.diabetesCalculator .autosized-input');
-    inputDiabetes.oninput = updateSavings;
+
+    inputDiabetes.oninput = function() {
+      updateSavings();
+      // updateSize();
+    };
 
     const inputTrees = document.querySelector('.c02andTreesCalculator .autosized-input');
-    inputTrees.oninput = updateCO2eAndTrees;
-
-    inputDiabetes.oninput = updateSize;
+    inputTrees.oninput = function() {
+      updateCO2eAndTrees();
+      // updateSize();
+    }
 
 
     updateSize();
@@ -34,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById("diabetesTotalSavings").textContent = '\u00A0$' + totalSavings + '.';
       updateSize();  
     }
+
+    updateSavings();
   
     function incrementValue(inputId) {
       const input = document.getElementById(inputId);
@@ -47,8 +57,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       updateSavings();
     }
   
-    updateSavings();
-
     document.getElementById("incrementEmployees").addEventListener("click", () => incrementValue("diabetesEmployees"));
     document.getElementById("decrementEmployees").addEventListener("click", () => decrementValue("diabetesEmployees"));
 
@@ -73,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       const result = calculateCO2eAndTrees(employees, daysPerWeek);
 
       document.getElementById("totalCO2eSaved").textContent = result.totalCO2eSaved.toLocaleString() + ' lbs';
-      document.getElementById("treesPlanted").textContent = result.treesPlanted;
+      document.getElementById("treesPlanted").textContent = result.treesPlanted.toLocaleString();
     }
 
     function incrementTreesValue(inputId) {
@@ -98,4 +106,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("treesEmployees").addEventListener("input", updateCO2eAndTrees);
     document.getElementById("daysPerWeek").addEventListener("input", updateCO2eAndTrees);
 
+    const containers = document.querySelectorAll('.forksInteractionContainer');
+
+    for (const container of containers) {
+      container.addEventListener('input', updateSize);
+    }
+    
   });
