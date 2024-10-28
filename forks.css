@@ -49,11 +49,6 @@
     margin: 0 2px;
     padding: 0 .6em;
     background: transparent;
-    transform: translateY(-4px);
-  }
-
-  .forksInteractionContainer .hide-buttons .relative-parent {
-    transform: translateY(0);
   }
 
   .forksInteractionContainer .size-calibration {
@@ -82,13 +77,14 @@
   display: inline-flex;
   align-items: center;
   padding: 0 .5em;
-  font-family: Neuzeitgro, sans-serif;
+  height: 0;
 }
 
 .forksInteractionStandout {
   display: inline-flex;
   border-bottom: 2px solid rgb(207, 207, 207);
   border-radius: 0;
+  background: var(--green2);
 }
 
 .forksInteractionContainer .incrementDecrementContainer.hide-buttons button {
