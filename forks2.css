@@ -11,7 +11,7 @@
 }
 
 .forksInteractionContainer button {
-    background: green;
+    background: blue;
     transform: translateY(-2px);
     border: none;
     border-radius: 8px;
