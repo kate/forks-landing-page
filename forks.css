@@ -11,13 +11,12 @@
 }
 
 .forksInteractionContainer button {
-    background: green;
     transform: translateY(-2px);
     border: none;
     border-radius: 8px;
     margin: 0;
     text-decoration: none;
-    background: #d1d1d1;
+    background: black;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
