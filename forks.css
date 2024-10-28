@@ -82,8 +82,9 @@
   
 .forksInteractionContainer .incrementDecrementContainer {
   display: inline-flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 0 .5em;
+  font-family: Neuzeitgro, sans-serif;
 }
 
 .forksInteractionStandout {
